@@ -1,0 +1,76 @@
+<html>
+    <head>
+    <!-- Load c3.css -->
+    <link href="/static/c3-0.4.10/c3.css" rel="stylesheet" type="text/css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Load d3.js and c3.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+    <script src="/static/c3-0.4.10/c3.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="/static/js/app.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="index.html">Topic Modeling Using LDA</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="index.html">Home</a></li>
+      <li><a href="Test/index.html">Find Topic Model</a></li>
+    </ul>
+  </div>
+</nav>
+        <div class="container">
+            <div class='chart col-md-12 row' style="margin-top: 20px;">
+                <div class='col-md-6'>
+                <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        Select An Option<span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li><a href="index.html">Wiki Topics</a></li>
+                        <li class="active"><a href="documents.html">Wiki Documents Search</a></li>
+                        <li><a href="bbc_index.html">BBC Topics</a></li>
+                        <li><a href="bbc_documents.html">BBC Documents Search</a></li>
+                    </ul>
+                </div>
+                </div>
+                <div class='col-md-6'>
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="documents-list" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            Select A Document <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" id="documents-dropdown-menu" aria-labelledby="documents-list" style="overflow: scroll; height: 500px; border: solid #ccc 2px;">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class='chart col-md-12 row' style="margin-top:20px;">
+              <div class='col-md-6'>
+                <div class="panel panel-primary">
+                    <div class="panel-heading" id="doc-title" >Document Topics</div>
+                    <div class="panel-body">
+                        <div id='doc-chart'></div>
+                    </div>
+                </div>
+              </div>
+              <div class='col-md-6'>
+                <div class="panel panel-primary">
+                    <div class="panel-heading" id="topic-title" >Topic</div>
+                    <div class="panel-body">
+                        <div id='topic-chart'></div>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+        $(document).ready(function () {
+            NS.wiki.init(false);
+        });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,80 @@
+<html>
+    <head>
+        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+        <meta http-equiv="Pragma" content="no-cache" />
+        <meta http-equiv="Expires" content="0" />
+    <!-- Load c3.css -->
+    <link href="/static/c3-0.4.10/c3.css" rel="stylesheet" type="text/css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Load d3.js and c3.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+    <script src="/static/c3-0.4.10/c3.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="/static/js/app.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="{{ url_for('index') }}">Topic Modeling Using LDA</a>
+    </div>
+    <ul class="nav navbar-nav">
+        <li class="active"><a href="{{ url_for('wiki') }}">Home</a></li>
+        <li><a href={{ url_for('wcloud') }}>Find Topic Mddel</a></li>
+    </ul>
+  </div>
+</nav>
+        <div class="container">
+            <div class='col-md-12' style="margin-top: 20px;">
+                <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        Select An Option<span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li><a href="{{ url_for('wiki') }}">Wiki Topics</a></li>
+                        <li><a href="{{ url_for('jslda') }}">NewS Topic</a></li>
+                        <li><a href="{{url_for('bbc')}}">BBC Topics</a></li>
+                        <li><a href="{{url_for('twenty_news')}}">20NEWS Topics</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class='col-md-12'>
+            <div class='col-md-6' style="padding-bottom:70px;">
+                <h3 class='title'>Topics</h3>
+                <div style="overflow: scroll; height: 500px; border: solid #ccc 2px;">
+                <table id="topic-table" class="table table-responsive table-bordered table-striped table-condensed">
+                    <thead>
+                      <tr class="info">
+                          <th>Topic</th>
+                          <th>Word Distribution</th>
+                      </tr>
+                    </thead>
+                    <tbody> </tbody>
+                </table>
+                </div>
+            </div>
+            <div class='chart col-md-6'>
+                <div class="panel panel-primary" style="margin-top:56px;">
+                    <div class="panel-heading" id="topic-title" >Pie Chart </div>
+                    <div class="panel-body">
+                        <div id='topic-chart'></div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+        $(document).ready(function () {
+            NS.tnews.init(true);
+        });
+        </script>
+    <div class="footer">
+    <p style="background: black;color:white;position:fixed;bottom:0;width: 100vw;text-align: center;height:50px;margin:0 0 0 0 !important;padding-top:12px">Roshan Basnet, All rights Reserved </p>
+</div>
+
+    </body>
+</html>
+
